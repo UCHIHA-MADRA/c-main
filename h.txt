@@ -1,0 +1,12 @@
+"default_icon": {
+            "16": "R.png",
+            "48": "OIP.png",
+            "128": "OIP1.png"
+        }
+
+
+ // "icons": {
+    //     "16": "R.png",
+    //     "48": "OIP.png",
+    //     "128": "OIP1.png"
+    // }

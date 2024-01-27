@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Translation Client</title>
+</head>
+
+<body>
+    <h1>English to Hindi Translation</h1>
+    <textarea id="textInput" placeholder="Enter English text..."></textarea>
+    <button id="translateButton">Translate</button>
+    <div id="translationResult"></div>
+
+    <script>
+        document.getElementById('translateButton').addEventListener('click', () => {
+            const text = document.getElementById('textInput').value;
+            translateEnglishToHindi(text);
+        });
+
+        async function translateEnglishToHindi(text) {
+            const response = await fetch('http://localhost:3000/translate/english-to-hindi', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('translationResult').textContent = `Translation: ${data.translation}`;
+            } else {
+                document.getElementById('translationResult').textContent = 'Translation failed';
+            }
+        }
+    </script>
+</body>
+
+</html>
